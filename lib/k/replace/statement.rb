@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 # frozen_string_literal: true
-require 'pry'
 module K
   module Replace
     class Statement
@@ -8,7 +7,6 @@ module K
       include Changes
 
       attr_reader :source, :keys
-
 
       def initialize(source)
         @keys = []
