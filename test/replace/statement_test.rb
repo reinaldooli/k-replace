@@ -16,7 +16,7 @@ class ChangesTest < Minitest::Test
     statement = K::Replace::Statement.new "Hello, ##__User.name__##!"
     @user.name = 'John Doe'
 
-    replaced = statement.replace @user
+    replaced = statement.replace({ user: @user })
 
     assert_equal replaced, "Hello, John Doe!"
   end
@@ -26,7 +26,7 @@ class ChangesTest < Minitest::Test
     @user.name = 'John Doe'
     @user.age = 18
 
-    replaced = statement.replace @user
+    replaced = statement.replace({ user: @user })
 
     assert_equal replaced, 'I\'m John Doe and I\'m 18 years old.'
   end
@@ -36,7 +36,7 @@ class ChangesTest < Minitest::Test
     @user.name = 'John Doe'
     @user.address = Address.new('Telegraph Av, 123')
 
-    replaced = statement.replace @user
+    replaced = statement.replace({ user: @user })
 
     assert_equal replaced, 'I\'m John Doe and I live in Telegraph Av, 123'
   end
@@ -48,7 +48,7 @@ class ChangesTest < Minitest::Test
     @address.city = City.new('Miami')
     @user.address = @address
 
-    replaced = statement.replace @user
+    replaced = statement.replace({ user: @user })
 
     assert_equal replaced, 'I\'m John Doe and I live in Telegraph Av, 123 - Miami'
   end

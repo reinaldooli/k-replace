@@ -4,7 +4,7 @@ module K
   module Replace
     class Statement
       include Keys
-      include Changes
+      include DynamicAccessors
 
       attr_reader :source, :keys
 
@@ -17,13 +17,12 @@ module K
         end
       end
 
-      def replace(*objects)
-        objs = hash_objects(objects)
+      def replace(hash)
         @source.gsub(kreplace.key_pattern) do |key|
           replaced = ''
           find_all(key) do |match|
             chained = chain_property(match)
-            chained.each{|k, v| replaced = resolve_property(k, v, objs[k])}
+            chained.each{|k, v| replaced = resolve_property(k, v, hash[k])}
           end
           replaced
         end

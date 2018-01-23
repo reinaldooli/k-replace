@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    k-replace (0.0.1)
+    k-replace (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -34,9 +34,9 @@ PLATFORMS
 
 DEPENDENCIES
   k-replace!
-  minitest
-  minitest-utils
-  pry-meta
+  minitest (~> 5.10)
+  minitest-utils (~> 0.4)
+  pry-meta (~> 0.0)
 
 BUNDLED WITH
    1.15.4

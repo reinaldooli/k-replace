@@ -4,8 +4,8 @@ module K
   module Replace
     require "k/replace/config"
     require "k/replace/version"
+    require "k/replace/dynamic_accessors"
     require "k/replace/keys"
-    require "k/replace/changes"
     require "k/replace/statement"
 
     def self.setup
